@@ -1,0 +1,76 @@
+.card {
+    border: none;
+    width: 16rem;
+    transition: all 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #6c757d;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.card-body {
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.price {
+    text-align: center;
+    color: #3D6CB9;
+    padding: 20px 0;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+@media (max-width: 760px) {
+    .swiper-button-next {
+        right: 20px;
+        transform: rotate(90deg);
+    }
+
+    .swiper-button-prev {
+        left: 20px;
+        transform: rotate(90deg);
+    }
+}
+
+.custom-select {
+    width: 170px;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 14px;
+    color: #007bff;
+    border: 1px solid #007bff;
+    background-color: white;
+    transition: border-color 0.2s ease;
+}
+
+.custom-select:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+.custom-select option {
+    padding: 5px 10px;
+}

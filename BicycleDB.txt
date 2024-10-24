@@ -1,0 +1,72 @@
+-- BicycleDB --
+-- Account
+CREATE TABLE auth (
+    auth_id SERIAL PRIMARY KEY,
+    auth_email VARCHAR(255) UNIQUE NOT NULL,
+    auth_password VARCHAR(255) NOT NULL,
+    auth_role VARCHAR(50) NOT NULL,
+	auth_image VARCHAR(255),
+    auth_name VARCHAR(255),
+    auth_phone VARCHAR(10),
+    auth_address TEXT
+);
+
+INSERT INTO auth (auth_email, auth_password, auth_role, auth_image, auth_name, auth_phone, auth_address) VALUES
+('admin2003@gmail.com', 'admin0208', 'Admin', 'admin_lamvu.jpg', 'Admin', '0907891780', 'Đồng Tháp'),
+('lailamvu2003@gmail.com', 'lamvu0208', 'User', 'admin_lamvu.jpg', 'Lại Lâm Vũ', '0907891780', 'Đồng Tháp');
+
+-- Category
+CREATE TABLE category (
+    ctg_id SERIAL PRIMARY KEY,
+    ctg_name VARCHAR(255) NOT NULL
+);
+
+-- Brand
+CREATE TABLE brand (
+    brd_id SERIAL PRIMARY KEY,
+    brd_name VARCHAR(255) NOT NULL
+);
+
+-- Product
+CREATE TABLE product (
+    prd_id SERIAL PRIMARY KEY,
+	ctg_id INT REFERENCES category(ctg_id) ON DELETE SET NULL,
+	brd_id INT REFERENCES brand(brd_id) ON DELETE SET NULL,
+    prd_name VARCHAR(255) NOT NULL,
+    prd_price DECIMAL(10, 2) NOT NULL,
+    prd_stock INT NOT NULL,
+	prd_image VARCHAR(255),
+    prd_image1 VARCHAR(255),
+    prd_image2 VARCHAR(255),
+    prd_image3 VARCHAR(255),
+    prd_description TEXT,
+    prd_parameter TEXT
+);
+
+-- Cart
+CREATE TABLE cart (
+    cart_id SERIAL PRIMARY KEY,
+    auth_id INT REFERENCES auth(auth_id) ON DELETE CASCADE,
+	prd_id INT REFERENCES product(prd_id) ON DELETE CASCADE,
+	quantity INT NOT NULL
+);
+
+-- Order
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+	auth_id INT REFERENCES auth(auth_id) ON DELETE CASCADE,
+	prd_id VARCHAR(255) NOT NULL,
+	order_quantity VARCHAR(255) NOT NULL,
+    order_total_price DECIMAL(10, 2) NOT NULL,
+	order_date TIMESTAMP NOT NULL,
+	order_payment VARCHAR(255) NOT NULL,
+	order_shipp VARCHAR(255) NOT NULL,
+    order_status VARCHAR(50) NOT NULL
+);
+
+SELECT * FROM orders
+SELECT * FROM auth
+SELECT * FROM cart
+SELECT * FROM category
+SELECT * FROM product
+SELECT * FROM brand

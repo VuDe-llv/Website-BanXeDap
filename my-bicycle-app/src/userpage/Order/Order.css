@@ -1,0 +1,58 @@
+.order-card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+  }
+
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+  }
+  
+  .order-status {
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.order-status.chua-xac-nhan {
+    color: #28a745; /* Xanh lá */
+}
+
+.order-status.da-huy {
+    color: #dc3545; /* Đỏ */
+}
+
+.order-status.dang-xu-ly {
+    color: #ff8c00; /* Vàng cam */
+}
+
+.order-status.hoan-thanh {
+  color: #007bff; /* Blue */
+}
+
+  
+  .product-img {
+    width: 80px;
+    height: auto;
+  }
+  
+  .total-price {
+    font-weight: bold;
+    font-size: 15px;
+    color: #3D6CB9;
+  }
+  
+  .product-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .product-info {
+    margin-left: 15px;
+  }
+  
